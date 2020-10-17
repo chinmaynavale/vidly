@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MoviesTable from './moviesTable';
 import ListGroup from './common/listGroup';
 import Pagination from './common/pagination';
@@ -47,6 +48,8 @@ class Movies extends Component {
   handleSort = sortColumn => {
     this.setState({ sortColumn });
   };
+
+  handleNewMovie = () => {}; //FIXME:
 
   getPagedData = () => {
     const {
@@ -98,6 +101,10 @@ class Movies extends Component {
         </div>
 
         <div className='col'>
+          <Link to='/movies/new'>
+            <button className='btn btn-primary mb-3'>New Movie</button>
+          </Link>
+
           <p>Showing {totalCount} movies in the database.</p>
 
           <MoviesTable
